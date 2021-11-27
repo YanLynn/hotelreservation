@@ -65,6 +65,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::get('/{reservation}/edit', 'ReservationController@edit')->name('reservation.edit');
             Route::patch('/{reservation}/update', 'ReservationController@update')->name('reservation.update');
             Route::delete('/{reservation}/delete', 'ReservationController@destroy')->name('reservation.destroy');
+
+            Route::get('/exportCSV', 'ReservationController@exportCSV')->name('reservation.exportCSV');
         });
 
         Route::resource('roles', RolesController::class);

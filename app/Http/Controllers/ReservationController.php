@@ -46,10 +46,10 @@ class ReservationController extends Controller
     }
 
    
-    public function show(Post $post)
+    public function show(Reservation $reservation)
     {
         return view('reservation.show', [
-            'reservation' => $post
+            'reservation' => $reservation
         ]);
     }
 
@@ -77,5 +77,38 @@ class ReservationController extends Controller
 
         return redirect()->route('reservation.index')
             ->withSuccess(__('reservation deleted successfully.'));
+    }
+
+    public function exportCSV()
+    {
+        $fileName = "reservationCSV.csv";
+        $reservation = Reservation::all();
+
+        $headers = array(
+            "Content-type"        => "text/csv",
+            "Content-Disposition" => "attachment; filename=$fileName",
+            "Pragma"              => "no-cache",
+            "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+            "Expires"             => "0"
+        );
+        $columns = array('Title', 'Description', 'Body', 'Created_at', 'Updated_at');
+
+        $callback = function() use($reservation, $columns) {
+            $file = fopen('php://output', 'w');
+            fputcsv($file, $columns);
+
+            foreach ($reservation as $reservation) {
+                $row['Title']  = $reservation->title;
+                $row['Description']    = $reservation->description;
+                $row['Body']    = $reservation->body;
+                $row['Created_at']  = $reservation->created_at;
+                $row['Updated_at']  = $reservation->updated_at;
+
+                fputcsv($file, array($row['Title'], $row['Description'], $row['Body'], $row['Created_at'], $row['Updated_at']));
+            }
+
+            fclose($file);
+        };
+        return response()->stream($callback, 200, $headers);
     }
 }

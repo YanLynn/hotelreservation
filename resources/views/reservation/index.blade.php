@@ -6,7 +6,7 @@
     <div class="bg-light p-4 rounded">
         <h2>Reservation</h2>
         <div class="lead">
-            Manage your Reservation here.
+        <a href="{{ route('reservation.exportCSV') }}" class="btn btn-primary btn-sm float-left">Export CSV</a>
             <a href="{{ route('reservation.create') }}" class="btn btn-primary btn-sm float-right">Add reservation</a>
         </div>
         
