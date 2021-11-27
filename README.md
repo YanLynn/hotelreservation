@@ -22,4 +22,4 @@
 
 ##notice 
 - admin login => admin@gmail.com , admin123
-admin user create password is "test" 
+- admin user create password is "test" 
