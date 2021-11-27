@@ -18,7 +18,7 @@
 ## DB migrate and seed
 - php artisan migrate
 - php artisan permission:create-permission-routes
-- php artisan db:seed --class=CreateAdminUserSeeder
+- php artisan db:seed
 
 ##notice 
 - admin login => admin@gmail.com , admin123
