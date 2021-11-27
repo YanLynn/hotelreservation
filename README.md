@@ -21,4 +21,5 @@
 - php artisan db:seed --class=CreateAdminUserSeeder
 
 ##notice 
+- admin login => admin@gmail.com , admin123
 admin user create password is "test" 
