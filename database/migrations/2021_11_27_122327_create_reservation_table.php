@@ -11,14 +11,31 @@ class CreateReservationTable extends Migration
      *
      * @return void
      */
+
+
     public function up()
     {
         Schema::create('reservation', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('title', 70);
-            $table->string('description', 320);
-            $table->text('body');
+            $table->string('f_name');
+            $table->string('l_name');
+            $table->string('address');
+            $table->integer('zipcode');
+            $table->string('email');
+            $table->string('city');
+            $table->string('state');
+            $table->integer('phone');
+            $table->date('checkInDate');
+            $table->date('checkOutDate');
+            $table->string('checkInTime');
+            $table->string('checkOutTime');
+            $table->integer('forAdults');
+            $table->integer('forChildren');
+            $table->integer('numOfRooms');
+            $table->string('roomTypeOne');
+            $table->string('roomTypeTow');
+            $table->string('specialInstructions');
             $table->timestamps();
 
             $table->foreign('user_id')

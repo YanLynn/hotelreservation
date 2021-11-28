@@ -13,8 +13,8 @@ class reservation extends Model
 
     protected $fillable = [
         'user_id',
-        'title',
-        'description',
-        'body'
+        'f_name', 'l_name', 'address','zipcode','email','city','state',
+        'phone','checkInDate','checkOutDate','checkInTime','checkOutTime','forAdults',
+        'forChildren','numOfRooms','roomTypeOne','roomTypeTow','specialInstructions'
     ];
 }
