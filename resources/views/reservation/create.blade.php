@@ -1,10 +1,11 @@
 @extends('layouts.app-master')
 
 @section('content')
+
 <div class="bg-light p-4 rounded">
 
     <div class="container mt-4">
-
+    
         <form method="POST" action="{{ route('reservation.store') }}">
             @csrf
             <fieldset class="border p-2">
@@ -13,7 +14,7 @@
                 <div class="row">
                     <div class="col-md-1"></div>
                     <div class="col-md-5 mb-2">
-                        <label for="f_name" class="form-label">First Name</label>
+                        <label for="f_name" class="form-label">First Name<span class="text-danger">*</span></label>
                         <input value="{{ old('f_name') }}" type="text" class="form-control" name="f_name"
                             placeholder="First Name" required>
 
@@ -22,7 +23,7 @@
                         @endif
                     </div>
                     <div class="col-md-5 mb-2">
-                        <label for="l_name" class="form-label">Last Name</label>
+                        <label for="l_name" class="form-label">Last Name<span class="text-danger">*</span></label>
                         <input value="{{ old('l_name') }}" type="text" class="form-control" name="l_name"
                             placeholder="Last Name" required>
 
@@ -35,7 +36,7 @@
                 <div class="row">
                     <div class="col-md-1"></div>
                     <div class="col-md-5 mb-2">
-                        <label for="address" class="form-label">Address</label>
+                        <label for="address" class="form-label">Address<span class="text-danger">*</span></label>
                         <input value="{{ old('address') }}" type="text" class="form-control" name="address"
                             placeholder="Address" required>
 
@@ -44,8 +45,8 @@
                         @endif
                     </div>
                     <div class="col-md-5 mb-2">
-                        <label for="zipcode" class="form-label">ZipCode</label>
-                        <input value="{{ old('zipcode') }}" type="number" class="form-control" name="zipcode"
+                        <label for="zipcode" class="form-label">ZipCode<span class="text-danger">*</span></label>
+                        <input value="{{ old('zipcode') }}" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" name="zipcode"
                             placeholder="zipcode" required>
 
                         @if ($errors->has('zipcode'))
@@ -57,7 +58,7 @@
                 <div class="row">
                     <div class="col-md-1"></div>
                     <div class="col-md-5 mb-2">
-                        <label for="city" class="form-label">City</label>
+                        <label for="city" class="form-label">City<span class="text-danger">*</span></label>
                         <input value="{{ old('city') }}" type="text" class="form-control" name="city"
                             placeholder="City" required>
 
@@ -66,7 +67,7 @@
                         @endif
                     </div>
                     <div class="col-md-5 mb-2">
-                        <label for="state" class="form-label">State</label>
+                        <label for="state" class="form-label">State<span class="text-danger">*</span></label>
                         <input value="{{ old('state') }}" type="text" class="form-control" name="state"
                             placeholder="State" required>
 
@@ -79,7 +80,7 @@
                 <div class="row">
                     <div class="col-md-1"></div>
                     <div class="col-md-5 mb-2">
-                        <label for="email" class="form-label">Email Address</label>
+                        <label for="email" class="form-label">Email Address<span class="text-danger">*</span></label>
                         <input value="{{ old('email') }}" type="email" class="form-control" name="email"
                             placeholder="Email Address" required>
 
@@ -88,8 +89,8 @@
                         @endif
                     </div>
                     <div class="col-md-5 mb-2">
-                        <label for="phone" class="form-label">Phone</label>
-                        <input value="{{ old('phone') }}" type="number" class="form-control" name="phone"
+                        <label for="phone" class="form-label">Phone<span class="text-danger">*</span></label>
+                        <input value="{{ old('phone') }}" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" name="phone"
                             placeholder="Phone" required>
 
                         @if ($errors->has('phone'))
@@ -105,7 +106,7 @@
                 <div class="row">
                     <div class="col-md-1"></div>
                     <div class="col-md-5 mb-2">
-                        <label for="checkInDate" class="form-label">Check-in Date</label>
+                        <label for="checkInDate" class="form-label">Check-in Date<span class="text-danger">*</span></label>
                         <input value="{{ old('checkIn') }}" type="date" class="form-control" name="checkInDate"
                             placeholder="Check-in Date" required>
 
@@ -114,7 +115,7 @@
                         @endif
                     </div>
                     <div class="col-md-5 mb-2">
-                        <label for="checkOutDate" class="form-label">Check-Out Date</label>
+                        <label for="checkOutDate" class="form-label">Check-Out Date<span class="text-danger">*</span></label>
                         <input value="{{ old('checkOut') }}" type="date" class="form-control" name="checkOutDate"
                             placeholder="Check-Out Date" required>
 
@@ -128,8 +129,8 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-5 mb-2">
                     <label for="checkInTime" class="form-label">Check-in Time</label> <br>
-                        <select name="checkInTime" id="">
-                            <option value="" selected>Select</option>
+                        <select name="checkInTime" id="" class="form-select">
+                            <option value="" disabled selected>Select</option>
                             <option value="Morning">Morning</option>
                             <option value="Afternoon">Afternoon</option>
                             <option value="Evening">Evening</option>
@@ -141,8 +142,8 @@
                     
                     <div class="col-md-5 mb-2">
                         <label for="checkOutTime" class="form-label">Check-Out Time</label><br>
-                        <select name="checkOutTime" id="">
-                            <option value="" selected>Select</option>
+                        <select name="checkOutTime" id="" class="form-select">
+                            <option value="" disabled selected>Select</option>
                             <option value="Morning">Morning</option>
                             <option value="Afternoon">Afternoon</option>
                             <option value="Evening">Evening</option>
@@ -153,12 +154,14 @@
                     </div>
                     <div class="col-md-1"></div>
                 </div>
+                
                 <div class="row">
                     <div class="col-md-1"></div>
                     <div class="col-md-5 mb-2">
+                        
                     <label for="forAdults" class="form-label">How many adults are coming?</label> <br>
-                        <select name="forAdults" id="">
-                            <option value="" selected>Select</option>
+                        <select name="forAdults" id="" class="form-select">
+                            <option  selected value="">Select</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -172,7 +175,7 @@
                     
                     <div class="col-md-5 mb-2">
                         <label for="forChildren" class="form-label">How many children are coming?</label><br>
-                        <select name="forChildren" id="">
+                        <select name="forChildren" id="" class="form-select">
                         <option value="" selected>Select</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -191,7 +194,7 @@
                     <div class="col-10">
                     <label for="numOfRooms" class="form-label">Number of rooms</label>
                         <input value="{{ old('numOfRooms') }}" type="number" class="form-control" name="numOfRooms"
-                            placeholder="Number of rooms" required>
+                            placeholder="Number of rooms">
 
                         @if ($errors->has('numOfRooms'))
                         <span class="text-danger text-left">{{ $errors->first('numOfRooms') }}</span>
@@ -203,7 +206,7 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-5 mb-2">
                     <label for="roomTypeOne" class="form-label">Room 1 type</label> <br>
-                        <select name="roomTypeOne" id="">
+                        <select name="roomTypeOne" id="" class="form-select">
                             <option value="" selected>Select</option>
                             <option value="Standard">Standard</option>
                             <option value="Deluxe">Deluxe</option>
@@ -217,7 +220,7 @@
                     
                     <div class="col-md-5 mb-2">
                         <label for="roomTypeTow" class="form-label">Room 2 type</label><br>
-                        <select name="roomTypeTow" id="">
+                        <select name="roomTypeTow" id="" class="form-select">
                         <option value="" selected>Select</option>
                             <option value="Standard">Standard</option>
                             <option value="Deluxe">Deluxe</option>
@@ -235,7 +238,7 @@
                     <div class="col-10">
                     <label for="specialInstructions" class="form-label">Special Instructions</label>
                         <input value="{{ old('specialInstructions') }}" type="text" class="form-control" name="specialInstructions"
-                            placeholder="Special Instructions" required>
+                            placeholder="Special Instructions" >
 
                         @if ($errors->has('specialInstructions'))
                         <span class="text-danger text-left">{{ $errors->first('specialInstructions') }}</span>

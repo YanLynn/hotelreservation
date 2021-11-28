@@ -21,21 +21,21 @@ class CreateReservationTable extends Migration
             $table->string('f_name');
             $table->string('l_name');
             $table->string('address');
-            $table->integer('zipcode');
+            $table->string('zipcode');
             $table->string('email');
             $table->string('city');
             $table->string('state');
-            $table->integer('phone');
+            $table->string('phone');
             $table->date('checkInDate');
             $table->date('checkOutDate');
-            $table->string('checkInTime');
-            $table->string('checkOutTime');
-            $table->integer('forAdults');
-            $table->integer('forChildren');
-            $table->integer('numOfRooms');
-            $table->string('roomTypeOne');
-            $table->string('roomTypeTow');
-            $table->string('specialInstructions');
+            $table->string('checkInTime')->nullable();
+            $table->string('checkOutTime')->nullable();
+            $table->integer('forAdults')->nullable();
+            $table->integer('forChildren')->nullable();
+            $table->integer('numOfRooms')->nullable();
+            $table->string('roomTypeOne')->nullable();
+            $table->string('roomTypeTow')->nullable();
+            $table->string('specialInstructions')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')
