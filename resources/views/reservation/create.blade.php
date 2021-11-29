@@ -5,8 +5,16 @@
 <div class="bg-light p-4 rounded">
 
     <div class="container mt-4">
+    @if($reservation->exit)
+
+    <form method="POST" action="{{ route('reservation.update', $reservation->id) }}" class="needs-validation"
+            novalidate>
+            @method('patch')
+    @else
     
-        <form method="POST" action="{{ route('reservation.store') }}">
+    <form method="POST" action="{{ route('reservation.store') }}">
+    @endif
+        <!-- <form method="POST" action="{{ route('reservation.store') }}"> -->
             @csrf
             <fieldset class="border p-2">
                 <legend class="float-none w-auto p-2">Reservation Details</legend>
@@ -15,7 +23,7 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-5 mb-2">
                         <label for="f_name" class="form-label">First Name<span class="text-danger">*</span></label>
-                        <input value="{{ old('f_name') }}" type="text" class="form-control" name="f_name"
+                        <input value="{{old('f_name', $reservation->f_name)}}" type="text" class="form-control" name="f_name"
                             placeholder="First Name" required>
 
                         @if ($errors->has('f_name'))
@@ -24,7 +32,7 @@
                     </div>
                     <div class="col-md-5 mb-2">
                         <label for="l_name" class="form-label">Last Name<span class="text-danger">*</span></label>
-                        <input value="{{ old('l_name') }}" type="text" class="form-control" name="l_name"
+                        <input value="{{old('l_name', $reservation->l_name)}}" type="text" class="form-control" name="l_name"
                             placeholder="Last Name" required>
 
                         @if ($errors->has('l_name'))
@@ -37,7 +45,7 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-5 mb-2">
                         <label for="address" class="form-label">Address<span class="text-danger">*</span></label>
-                        <input value="{{ old('address') }}" type="text" class="form-control" name="address"
+                        <input value="{{old('address', $reservation->address)}}" type="text" class="form-control" name="address"
                             placeholder="Address" required>
 
                         @if ($errors->has('address'))
@@ -46,7 +54,7 @@
                     </div>
                     <div class="col-md-5 mb-2">
                         <label for="zipcode" class="form-label">ZipCode<span class="text-danger">*</span></label>
-                        <input value="{{ old('zipcode') }}" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" name="zipcode"
+                        <input value="{{old('zipcode', $reservation->zipcode)}}" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" name="zipcode"
                             placeholder="zipcode" required>
 
                         @if ($errors->has('zipcode'))
@@ -59,7 +67,7 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-5 mb-2">
                         <label for="city" class="form-label">City<span class="text-danger">*</span></label>
-                        <input value="{{ old('city') }}" type="text" class="form-control" name="city"
+                        <input value="{{old('city', $reservation->city)}}" type="text" class="form-control" name="city"
                             placeholder="City" required>
 
                         @if ($errors->has('city'))
@@ -68,7 +76,7 @@
                     </div>
                     <div class="col-md-5 mb-2">
                         <label for="state" class="form-label">State<span class="text-danger">*</span></label>
-                        <input value="{{ old('state') }}" type="text" class="form-control" name="state"
+                        <input value="{{old('state', $reservation->state)}}" type="text" class="form-control" name="state"
                             placeholder="State" required>
 
                         @if ($errors->has('state'))
@@ -81,7 +89,7 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-5 mb-2">
                         <label for="email" class="form-label">Email Address<span class="text-danger">*</span></label>
-                        <input value="{{ old('email') }}" type="email" class="form-control" name="email"
+                        <input value="{{old('email', $reservation->email)}}" type="email" class="form-control" name="email"
                             placeholder="Email Address" required>
 
                         @if ($errors->has('email'))
@@ -90,7 +98,7 @@
                     </div>
                     <div class="col-md-5 mb-2">
                         <label for="phone" class="form-label">Phone<span class="text-danger">*</span></label>
-                        <input value="{{ old('phone') }}" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" name="phone"
+                        <input value="{{old('phone', $reservation->phone)}}" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" name="phone"
                             placeholder="Phone" required>
 
                         @if ($errors->has('phone'))
@@ -107,7 +115,7 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-5 mb-2">
                         <label for="checkInDate" class="form-label">Check-in Date<span class="text-danger">*</span></label>
-                        <input value="{{ old('checkIn') }}" type="date" class="form-control" name="checkInDate"
+                        <input value="{{old('checkIn', $reservation->checkInDate)}}" type="date" class="form-control" name="checkInDate"
                             placeholder="Check-in Date" required>
 
                         @if ($errors->has('checkInDate'))
@@ -116,7 +124,7 @@
                     </div>
                     <div class="col-md-5 mb-2">
                         <label for="checkOutDate" class="form-label">Check-Out Date<span class="text-danger">*</span></label>
-                        <input value="{{ old('checkOut') }}" type="date" class="form-control" name="checkOutDate"
+                        <input value="{{old('checkOut', $reservation->checkOutDate)}}" type="date" class="form-control" name="checkOutDate"
                             placeholder="Check-Out Date" required>
 
                         @if ($errors->has('checkOutDate'))

@@ -26,7 +26,9 @@ class ReservationController extends Controller
      */
     public function create()
     {
-        return view('reservation.create');
+        
+        $reservation = new Reservation;
+        return view('reservation.create' ,compact('reservation'));
     }
 
     /**
@@ -60,7 +62,7 @@ class ReservationController extends Controller
    
     public function edit(Reservation $reservation)
     {
-        return view('reservation.edit', [
+        return view('reservation.create', [
             'reservation' => $reservation
         ]);
     }
