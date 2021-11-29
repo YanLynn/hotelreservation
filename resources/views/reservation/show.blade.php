@@ -57,70 +57,44 @@
                                 </tr>
                                 <tr>
                                     <td>Check In Time</td>
-                                    @if(isset($reservation->checkInTime))
-                                    <td>{{ $reservation->checkInTime}}</td>
-                                    @else
-                                    <td>-</td>
-                                    @endif
+                                    <td>{{$reservation->checkInTime ?? '-'}}</td>
+                                   
 
                                 </tr>
                                 <tr>
                                     <td>Check Out Time</td>
-                                   
-                                    @if(isset($reservation->checkOutTime))
-                                    <td>{{ $reservation->checkOutTime}}</td>
-                                    @else
-                                    <td>-</td>
-                                    @endif
+                                    <td>{{$reservation->checkOutTime ?? '-'}}</td>
+                                    
                                 </tr>
                                 <tr>
                                     <td>Number of Adults</td>
-                                    @if(isset($reservation->forAdults))
-                                    <td>{{ $reservation->forAdults}}</td>
-                                    @else
-                                    <td>-</td>
-                                    @endif
+                                    <td>{{$reservation->forAdults ?? '-'}}</td>
+                                   
                                 </tr>
                                 <tr>
                                     <td>Number of Children</td>
+                                    <td>{{$reservation->forChildren ?? '-'}}</td>
                                    
-                                    @if(isset($reservation->forChildren))
-                                    <td>{{ $reservation->forChildren}}</td>
-                                    @else
-                                    <td>-</td>
-                                    @endif
                                 </tr>
                                 <tr>
                                     <td>Number of rooms</td>
-                                    @if(isset($reservation->numOfRooms))
-                                    <td>{{ $reservation->numOfRooms}}</td>
-                                    @else
-                                    <td>-</td>
-                                    @endif
+                                    <td>{{$reservation->numOfRooms ?? '-'}}</td>
+                                   
                                 </tr>
                                 <tr>
                                     <td>Room One Type</td>
-                                    @if(isset($reservation->roomTypeOne))
-                                    <td>{{ $reservation->roomTypeOne}}</td>
-                                    @else
-                                    <td>-</td>
-                                    @endif
+                                    <td>{{$reservation->roomTypeOne ?? '-'}}</td>
+                                    
                                 </tr>
                                 <tr>
                                     <td>Room Two Type</td>
-                                    @if(isset($reservation->roomTypeTow))
-                                    <td>{{ $reservation->roomTypeTow}}</td>
-                                    @else
-                                    <td>-</td>
-                                    @endif
+                                    <td>{{$reservation->roomTypeTow ?? '-'}}</td>
+                                   
                                 </tr>
                                 <tr>
                                     <td>Special Instructions</td>
-                                    @if(isset($reservation->specialInstructions))
-                                    <td>{{ $reservation->specialInstructions}}</td>
-                                    @else
-                                    <td>-</td>
-                                    @endif
+                                    <td>{{$reservation->specialInstructions ?? '-'}}</td>
+                                   
                                 </tr>
                             </table>
                         </div>
