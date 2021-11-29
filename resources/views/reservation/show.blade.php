@@ -57,35 +57,70 @@
                                 </tr>
                                 <tr>
                                     <td>Check In Time</td>
-                                    <td>{{ $reservation->checkInTime }}</td>
+                                    @if(isset($reservation->checkInTime))
+                                    <td>{{ $reservation->checkInTime}}</td>
+                                    @else
+                                    <td>-</td>
+                                    @endif
+
                                 </tr>
                                 <tr>
                                     <td>Check Out Time</td>
-                                    <td>{{ $reservation->checkOutTime }}</td>
+                                   
+                                    @if(isset($reservation->checkOutTime))
+                                    <td>{{ $reservation->checkOutTime}}</td>
+                                    @else
+                                    <td>-</td>
+                                    @endif
                                 </tr>
                                 <tr>
                                     <td>Number of Adults</td>
-                                    <td>{{ $reservation->forAdults }}</td>
+                                    @if(isset($reservation->forAdults))
+                                    <td>{{ $reservation->forAdults}}</td>
+                                    @else
+                                    <td>-</td>
+                                    @endif
                                 </tr>
                                 <tr>
                                     <td>Number of Children</td>
-                                    <td>{{ $reservation->forChildren }}</td>
+                                   
+                                    @if(isset($reservation->forChildren))
+                                    <td>{{ $reservation->forChildren}}</td>
+                                    @else
+                                    <td>-</td>
+                                    @endif
                                 </tr>
                                 <tr>
                                     <td>Number of rooms</td>
-                                    <td>{{ $reservation->numOfRooms }}</td>
+                                    @if(isset($reservation->numOfRooms))
+                                    <td>{{ $reservation->numOfRooms}}</td>
+                                    @else
+                                    <td>-</td>
+                                    @endif
                                 </tr>
                                 <tr>
                                     <td>Room One Type</td>
-                                    <td>{{ $reservation->roomTypeOne }}</td>
+                                    @if(isset($reservation->roomTypeOne))
+                                    <td>{{ $reservation->roomTypeOne}}</td>
+                                    @else
+                                    <td>-</td>
+                                    @endif
                                 </tr>
                                 <tr>
                                     <td>Room Two Type</td>
-                                    <td>{{ $reservation->roomTypeTow }}</td>
+                                    @if(isset($reservation->roomTypeTow))
+                                    <td>{{ $reservation->roomTypeTow}}</td>
+                                    @else
+                                    <td>-</td>
+                                    @endif
                                 </tr>
                                 <tr>
                                     <td>Special Instructions</td>
-                                    <td>{{ $reservation->specialInstructions }}</td>
+                                    @if(isset($reservation->specialInstructions))
+                                    <td>{{ $reservation->specialInstructions}}</td>
+                                    @else
+                                    <td>-</td>
+                                    @endif
                                 </tr>
                             </table>
                         </div>
