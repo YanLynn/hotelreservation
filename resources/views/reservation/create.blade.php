@@ -5,7 +5,7 @@
 <div class="bg-light p-4 rounded">
 
     <div class="container mt-4">
-    @if($reservation->exit)
+    @if(isset($reservation->id))
 
     <form method="POST" action="{{ route('reservation.update', $reservation->id) }}" class="needs-validation"
             novalidate>
