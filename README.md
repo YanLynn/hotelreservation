@@ -22,4 +22,6 @@
 
 ##notice 
 - admin login => admin@gmail.com , admin123
+- manager login => manager@gmail.com , manager123
+- reservation login => reservation@gmail.com , reservation123
 - admin user create password is "test" 
